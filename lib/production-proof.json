@@ -1,0 +1,119 @@
+{
+  "window": {
+    "start": "2026-10-12T18:30:00+00:00",
+    "end": "2026-10-22T12:41:47.605893+00:00",
+    "timezone": "Asia/Kolkata",
+    "label": "13\u201322 October 2026 (22 October partial)"
+  },
+  "businesses": 2,
+  "conversations": 2346,
+  "customerRecords": 2344,
+  "incomingMessages": 17281,
+  "acceptedOutgoingMessages": 17548,
+  "exchangedMessages": 34829,
+  "automatedOutgoingMessages": 17535,
+  "staffOutgoingMessages": 13,
+  "engagement": {
+    "threePlusCustomerMessages": 1561,
+    "threePlusCustomerMessagesPercent": 66.5,
+    "sixPlusExchangedMessages": 1552,
+    "sixPlusExchangedMessagesPercent": 66.2,
+    "averageExchangedMessages": 14.85
+  },
+  "aiReplyTime": {
+    "medianSeconds": 7.4,
+    "p90Seconds": 10.1,
+    "samples": 12769,
+    "under15Seconds": 12566,
+    "under15SecondsPercent": 98.4
+  },
+  "nudges": {
+    "sent": 459,
+    "delivered": 453,
+    "read": 373,
+    "replied": 114,
+    "booked": 20,
+    "uniqueConversations": 199
+  },
+  "appointments": {
+    "created": 436,
+    "currentlyBooked": 420,
+    "withCalendarEvent": 436
+  },
+  "outside9amTo9pmCustomerMessages": 4859,
+  "daily": [
+    {
+      "day": "2026-10-13",
+      "incoming": 1386,
+      "outgoing": 1369,
+      "conversations": 216
+    },
+    {
+      "day": "2026-10-14",
+      "incoming": 2131,
+      "outgoing": 2072,
+      "conversations": 335
+    },
+    {
+      "day": "2026-10-15",
+      "incoming": 1438,
+      "outgoing": 1416,
+      "conversations": 214
+    },
+    {
+      "day": "2026-10-16",
+      "incoming": 1797,
+      "outgoing": 1753,
+      "conversations": 270
+    },
+    {
+      "day": "2026-10-17",
+      "incoming": 3189,
+      "outgoing": 3111,
+      "conversations": 482
+    },
+    {
+      "day": "2026-10-18",
+      "incoming": 2935,
+      "outgoing": 2924,
+      "conversations": 468
+    },
+    {
+      "day": "2026-10-19",
+      "incoming": 2418,
+      "outgoing": 2465,
+      "conversations": 457
+    },
+    {
+      "day": "2026-10-20",
+      "incoming": 1735,
+      "outgoing": 2024,
+      "conversations": 338
+    },
+    {
+      "day": "2026-10-21",
+      "incoming": 193,
+      "outgoing": 320,
+      "conversations": 106
+    },
+    {
+      "day": "2026-10-22",
+      "incoming": 59,
+      "outgoing": 94,
+      "conversations": 36
+    }
+  ],
+  "source": "Read-only production BigQuery logbook and Firestore aggregate extraction; methodology in docs/production-proof.md",
+  "cta": {
+    "label": "Conversations that booked a visit",
+    "definition": "Active conversations with at least one appointment created in the reporting window; deduplicated by conversation.",
+    "bookedConversations": 427,
+    "activeConversations": 2346,
+    "bookingRatePercent": 18.2,
+    "currentlyBookedConversations": 411,
+    "currentlyBookedRatePercent": 17.5,
+    "engagedBookedConversations": 427,
+    "engagedConversations": 1561,
+    "engagedBookingRatePercent": 27.4
+  }
+}

@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/site.config";
+import { devanagari } from "@/lib/fonts";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -11,7 +12,7 @@ const manrope = Manrope({
 });
 
 const description =
-  "Choukashi answers your dealership's WhatsApp enquiries in seconds, in the lead's own language, and books showroom visits for your staff.";
+  "Choukashi is an AI helper for your business’s WhatsApp. Answer questions in all Indian languages, book visits and give your sales team a helping hand.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -34,10 +35,17 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-IN" className={`${manrope.variable} h-full antialiased`}>
+    <html
+      lang="en-IN"
+      className={`${manrope.variable} ${devanagari.variable} h-full antialiased`}
+    >
       <body className="flex min-h-full flex-col font-sans">
         <SiteHeader />
-        <main id="main" tabIndex={-1} className="flex flex-1 flex-col focus:outline-none">
+        <main
+          id="main"
+          tabIndex={-1}
+          className="flex flex-1 flex-col focus:outline-none"
+        >
           {children}
         </main>
         <SiteFooter />

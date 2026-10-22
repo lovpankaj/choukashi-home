@@ -1,18 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { links, site } from "@/site.config";
+import { MobileNavigation } from "@/components/mobile-navigation";
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-line bg-white">
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-2 focus:z-50 focus:rounded-md focus:bg-charcoal focus:px-4 focus:py-2 focus:text-white"
-      >
+    <header className="site-header">
+      <a href="#main" className="skip-link">
         Skip to content
       </a>
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
-        <Link href="/" className="shrink-0" aria-label={`${site.name} home`}>
+      <div className="site-header-inner">
+        <Link href="/" className="site-logo" aria-label={`${site.name} home`}>
           <Image
             src="/brand/logo.svg"
             alt={site.name}
@@ -20,23 +18,22 @@ export function SiteHeader() {
             height={180}
             unoptimized
             priority
-            className="h-7 w-auto sm:h-9"
           />
         </Link>
-        <nav aria-label="Main" className="flex items-center gap-1 text-[0.95rem] font-semibold sm:gap-2">
-          <Link href="/" className="rounded-md px-2 py-2 text-charcoal hover:bg-paper sm:px-3">
-            Home
-          </Link>
-          <Link href="/support" className="rounded-md px-2 py-2 text-charcoal hover:bg-paper sm:px-3">
-            Support
-          </Link>
-          <a
-            href={links.app}
-            className="ml-1 rounded-full border-2 border-charcoal px-3.5 py-1.5 text-charcoal hover:bg-charcoal hover:text-white sm:px-5"
-          >
-            Sign in
-          </a>
+        <nav aria-label="Main" className="desktop-navigation">
+          <Link href="/">Home</Link>
+          <Link href="/#conversations">Real chats</Link>
+          <Link href="/#features">Features</Link>
+          <Link href="/#pricing">Pricing</Link>
+          <Link href="/#faq">FAQs</Link>
+          <Link href="/support">Support</Link>
         </nav>
+        <div className="header-actions">
+          <a href={links.app} className="header-signin">
+            Sign in <span aria-hidden="true">↗</span>
+          </a>
+          <MobileNavigation />
+        </div>
       </div>
     </header>
   );
