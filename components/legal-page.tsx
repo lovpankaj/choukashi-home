@@ -9,25 +9,40 @@ export function LegalPage({
   intro,
   notice,
   sections,
+  lastUpdated,
 }: {
   title: string;
   intro?: ReactNode;
   notice?: ReactNode;
   sections: LegalSection[];
+  lastUpdated?: string;
 }) {
   return (
     <article className="mx-auto w-full max-w-[70ch] px-4 py-10 sm:py-14">
-      <h1 className="text-3xl font-extrabold leading-tight text-charcoal sm:text-4xl">{title}</h1>
-      <p className="mt-3 text-muted">Last updated: {formatEffectiveDate()}</p>
+      <h1 className="text-3xl font-extrabold leading-tight text-charcoal sm:text-4xl">
+        {title}
+      </h1>
+      <p className="mt-3 text-muted">
+        Last updated: {lastUpdated ?? formatEffectiveDate()}
+      </p>
       {notice && (
-        <p role="note" className="mt-6 rounded-lg border border-brand/40 bg-tint px-4 py-3 font-semibold text-charcoal">
+        <p
+          role="note"
+          className="mt-6 rounded-lg border border-brand/40 bg-tint px-4 py-3 font-semibold text-charcoal"
+        >
           {notice}
         </p>
       )}
       {intro && <div className="prose-doc mt-6">{intro}</div>}
 
-      <nav aria-labelledby="toc-heading" className="mt-8 rounded-xl border border-line bg-white p-5">
-        <h2 id="toc-heading" className="text-sm font-bold uppercase tracking-wider text-muted">
+      <nav
+        aria-labelledby="toc-heading"
+        className="mt-8 rounded-xl border border-line bg-white p-5"
+      >
+        <h2
+          id="toc-heading"
+          className="text-sm font-bold uppercase tracking-wider text-muted"
+        >
           Contents
         </h2>
         <ol className="mt-3 list-decimal space-y-1.5 pl-5 marker:text-muted">
@@ -43,7 +58,12 @@ export function LegalPage({
 
       <div className="prose-doc">
         {sections.map((s, i) => (
-          <section key={s.id} id={s.id} aria-labelledby={`${s.id}-h`} className="scroll-mt-4">
+          <section
+            key={s.id}
+            id={s.id}
+            aria-labelledby={`${s.id}-h`}
+            className="scroll-mt-4"
+          >
             <h2 id={`${s.id}-h`}>
               {i + 1}. {s.title}
             </h2>

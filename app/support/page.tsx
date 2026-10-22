@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
 import { links, site } from "@/site.config";
+import { pricing } from "@/lib/pricing";
 
 export const metadata = pageMetadata(
   "Support",
@@ -10,8 +11,28 @@ export const metadata = pageMetadata(
 
 const faqs = [
   {
+    q: "How much do outgoing messages cost?",
+    a: (
+      <>
+        Paid use is prepaid. Recharges below ₹10,000 cost ₹
+        {pricing.standardMessageRupees.toFixed(2)} per outgoing AI, template or
+        staff message. A ₹10,000 recharge gives 10,000 messages at ₹1 each. GST
+        is {pricing.gstPercent}% extra. Your business pays Meta’s WhatsApp
+        charges separately.{" "}
+        <Link href="/#pricing" className="text-link">
+          See pricing and the calculator.
+        </Link>
+      </>
+    ),
+  },
+  {
     q: "Is there a free trial?",
-    a: <>Yes. Every new business gets one month free, with no automatic charge afterwards.</>,
+    a: (
+      <>
+        Yes. Every new business gets one month free, with no automatic charge
+        afterwards.
+      </>
+    ),
   },
   {
     q: "How do I get an account?",
@@ -21,20 +42,26 @@ const faqs = [
     q: "I forgot my password.",
     a: (
       <>
-        Sign in with a one-time code sent to your mobile number instead. Your admin can also set a new password for
-        you.
+        Sign in with a one-time code sent to your mobile number instead. Your
+        admin can also set a new password for you.
       </>
     ),
   },
   {
     q: "I'm not getting notifications.",
-    a: <>Allow notifications for {site.name} in your phone settings, and stay signed in to the app.</>,
+    a: (
+      <>
+        Allow notifications for {site.name} in your phone settings, and stay
+        signed in to the app.
+      </>
+    ),
   },
   {
     q: "Which phones are supported?",
     a: (
       <>
-        Android now, with iOS coming soon. You can also use any modern browser at{" "}
+        Android now, with iOS coming soon. You can also use any modern browser
+        at{" "}
         <a href={links.app} className="text-link">
           app.choukashi.com
         </a>
@@ -58,7 +85,8 @@ const faqs = [
     q: `I messaged a business and got replies from ${site.name}. Who has my data?`,
     a: (
       <>
-        The business you messaged. {site.name} handles your conversation on its behalf. See the{" "}
+        The business you messaged. {site.name} handles your conversation on its
+        behalf. See the{" "}
         <Link href="/privacy#leads" className="text-link">
           privacy policy section on leads
         </Link>
@@ -77,9 +105,12 @@ const contacts = [
 export default function SupportPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:py-14">
-      <h1 className="text-3xl font-extrabold leading-tight text-charcoal sm:text-4xl">Support</h1>
+      <h1 className="text-3xl font-extrabold leading-tight text-charcoal sm:text-4xl">
+        Support
+      </h1>
       <p className="mt-3 text-lg leading-relaxed">
-        Need help with {site.name}? Get in touch. We answer emails on Indian working days (Monday to Saturday).
+        Need help with {site.name}? Get in touch. We answer emails on Indian
+        working days (Monday to Saturday).
       </p>
 
       <section aria-labelledby="contact-h" className="mt-8">
@@ -93,7 +124,9 @@ export default function SupportPage() {
                 href={c.href}
                 className="block h-full rounded-2xl border border-line bg-white p-5 hover:border-charcoal"
               >
-                <span className="block text-sm font-bold uppercase tracking-wider text-muted">{c.label}</span>
+                <span className="block text-sm font-bold uppercase tracking-wider text-muted">
+                  {c.label}
+                </span>
                 <span className="mt-1 block break-words text-lg font-bold text-charcoal underline decoration-brand decoration-2 underline-offset-4">
                   {c.value}
                 </span>
